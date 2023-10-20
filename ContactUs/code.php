@@ -14,7 +14,7 @@ if (isset($_POST['btns'])) {
         move_uploaded_file($file_tmp, "images/" . $file_name);
         }
     }
-    
+
         try {
 
             $insertquery = "INSERT INTO `contactus` (`email`, `full_name`, `msg`, `dt`)
@@ -33,7 +33,7 @@ if (isset($_POST['btns'])) {
             }
             else{
                 $_SESSION['message']="Something went wrong";
-                header("Location: thankyou.html");
+                header("Location: index.php");
                 exit(0);
             }
             
