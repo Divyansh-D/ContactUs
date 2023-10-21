@@ -8,13 +8,18 @@ if (isset($_POST['btns'])) {
     $desc = $_POST['desc'];
     if (empty($_FILES['image']['name'])) {
         echo "Please upload a file.";
-    } if (empty($name) || empty($email) || empty($desc) || !filter_var($email, FILTER_VALIDATE_EMAIL)|| strlen(trim($name))<3) {
-        echo "Validation failed. Please check your input.";
+    }
+    else if(empty($name) || strlen((trim($name))<3)){
+        echo "Please enter a valid name.";
+    }
+    else if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+        echo "Please enter a valid email.";
+    }
+    else if (empty($desc)) {
+        echo "Please enter a valid description.";
     }
     else{
-    
         try {
-
             $file_name = $_FILES['image']['name'];
             $file_size = $_FILES['image']['size'];
             $file_tmp = $_FILES['image']['tmp_name'];
