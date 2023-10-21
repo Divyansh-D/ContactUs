@@ -14,9 +14,13 @@ session_start();
 <div class="container">
     <h1>Contact Us</h1>
     <?php
-    if(isset($_SESSION['message'])){
-      echo "<h4 class='alert alert-seccess'>".$_SESSION['message']."</h4>";
-      unset($_SESSION['message']);
+    if(isset($_SESSION['error message'])){
+      echo "<h4 class='alert alert-warning'>".$_SESSION['error message']."</h4>";
+      unset($_SESSION['error message']);
+    }
+    if(isset($_SESSION['success message'])){
+      echo "<h4 class='alert alert-success'>".$_SESSION['success message']."</h4>";
+      unset($_SESSION['success message']);
     }
     ?>
     <form action="code.php" method="POST" autocomplete="off" enctype="multipart/form-data">
