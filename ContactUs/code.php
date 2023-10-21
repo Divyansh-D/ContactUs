@@ -7,16 +7,24 @@ if (isset($_POST['btns'])) {
     $email = $_POST['email'];
     $desc = $_POST['desc'];
     if (empty($_FILES['image']['name'])) {
-        echo "Please upload a file.";
+        $_SESSION['error message']="Please upload the file.";
+        header("Location: index.php");
+        exit(0);
     }
     else if(empty($name) || strlen((trim($name))<3)){
-        echo "Please enter a valid name.";
+        $_SESSION['error message']="Enter valid name.";
+        header("Location: index.php");
+        exit(0);
     }
     else if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
-        echo "Please enter a valid email.";
+        $_SESSION['error message']="Enter valid email.";
+        header("Location: index.php");
+        exit(0);
     }
     else if (empty($desc)) {
-        echo "Please enter a valid description.";
+        $_SESSION['error message']="Enter valid discrption.";
+        header("Location: index.php");
+        exit(0);
     }
     else{
         try {
