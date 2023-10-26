@@ -71,7 +71,6 @@ if (isset($_POST['btns'])) {
                 $mail->addAttachment($file_tmp,$file_name);
                 $mail->Subject = "Query form the contactus page";
                 $mail->Body    = $desc;
-                $mail->send();
 
                 if(!$mail->send()) {
                     echo 'Message could not be sent.';
