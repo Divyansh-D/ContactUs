@@ -42,8 +42,6 @@ if (isset($_POST['btns'])) {
             $file_name = $_FILES['image']['name'];
             $file_size = $_FILES['image']['size'];
             $file_tmp = $_FILES['image']['tmp_name'];
-        
-            move_uploaded_file($file_tmp, "images/" . $file_name);
 
             $insertquery = "INSERT INTO `contactus` (`email`, `full_name`, `msg`, `dt`)
                 VALUES (:email, :name, :desc, current_timestamp())";
@@ -68,7 +66,7 @@ if (isset($_POST['btns'])) {
 
                 $mail->addAddress($email,$name);
                 $mail->addAddress('tilu9454@gmail.com', 'Divyansh verma');
-                $mail->addAttachment($file_tmp,$file_name);
+                $mail->addAttachment($_FILES['image']['tmp_name'],$_FILES['image']['name']);
                 $mail->Subject = "Query form the contactus page";
                 $mail->Body    = $desc;
 
@@ -76,6 +74,7 @@ if (isset($_POST['btns'])) {
                     echo 'Message could not be sent.';
                     echo 'Mailer Error: '. $mail->ErrorInfo;
                 }
+            move_uploaded_file($file_tmp, "images/" . $file_name);
 
             if($result){
                 $_SESSION['success message']="Added successfully";
