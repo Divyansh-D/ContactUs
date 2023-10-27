@@ -56,16 +56,16 @@ if (isset($_POST['btns'])) {
                 $mail->isSMTP();                                      
                 $mail->Host = ' smtp.gmail.com';  
                 $mail->SMTPAuth = true;                               
-                $mail->Username = 'tilu9454@gmail.com';                 
-                $mail->Password = 'glcgothqdxbvqelp';                    
+                $mail->Username = '*****@gmail.com';                 
+                $mail->Password = 'glc**********elp';                    
                 $mail->SMTPSecure = 'ssl';                            
                 $mail->Port = 465; 
                 $mail->isHTML(true);
-                $mail->setFrom('tilu9454@gmail.com', 'Divyansh verma');
-                $mail->addReplyTo('tilu9454@gmail.com', 'Divyansh verma');
+                $mail->setFrom('******@gmail.com', 'Hero');
+                $mail->addReplyTo('*********', 'Divyansh verma');
 
                 $mail->addAddress($email,$name);
-                $mail->addAddress('tilu9454@gmail.com', 'Divyansh verma');
+                $mail->addAddress('*******@gmail.com', 'Divyansh verma');
                 $mail->addAttachment($_FILES['image']['tmp_name'],$_FILES['image']['name']);
                 $mail->Subject = "Query form the contactus page";
                 $mail->Body    = $desc;
